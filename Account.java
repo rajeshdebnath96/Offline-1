@@ -38,10 +38,13 @@ public class Account {
         return this.customer.getName();
     }
     public void debit(double amount){
-        balance=balance+amount;
+        balance=balance-amount;
     }
     public void credit(double amount){
-        balance=balance-amount;
+        if(amount>balance){
+            System.out.println("Amount withdrawn exceeds the current balance!")
+        }
+        else balance=balance+amount;
     }
     public void print(){
         System.out.println("Customer: "+ getCustomerName() +" Branch: " + branch + " A/C no: " + AccountNumber + " Balance: " + balance );
